@@ -14,7 +14,7 @@ public class ReadExcelNCreateJson {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		String filePath = "D:/now/Regional KAB 6.6.18.xlsx";
-		System.out.println("Enter "+filePath);
+		System.out.println("Enter this "+filePath);
 		
 		FileInputStream ip;
 		
