@@ -27,7 +27,7 @@ public class ReadExcelNCreateJson {
 			JSONArray test1 = ReadSecondExcel.getJsonFromMyExcelObject(jsonBean);
 			String jsonStr = test1.toString();
 			
-			System.out.println("MARKER DATA final json:\n " + jsonStr.substring(1, jsonStr.length()-1));
+			System.out.println("MARKER DATA FINAL  json:\n " + jsonStr.substring(1, jsonStr.length()-1));
 
 			ip.close();
 		} catch (FileNotFoundException e) {
