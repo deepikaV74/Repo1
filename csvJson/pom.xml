@@ -42,6 +42,10 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<build.manifest.section>Build Details</build.manifest.section>
+    <build.unknown>UNKNOWN</build.unknown>
+    <build.number>${build.unknown}</build.number>
+    <build.revision>${build.unknown}</build.revision>
     </properties>
 
     <build>
@@ -70,6 +74,27 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.0.2</version>
+				<configuration>
+            <archive>
+                <manifest>
+                    <addClasspath>true</addClasspath>
+                </manifest>
+                <manifestEntries>
+                    <Build-Time>${maven.build.timestamp}</Build-Time>  
+                </manifestEntries>
+                <manifestSections>
+                    <manifestSection>
+                        <name>${build.manifest.section}</name>
+                        <manifestEntries>
+                            <Implementation-Title>${project.name}</Implementation-Title>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                            <Implementation-Build-Number>${build.number}</Implementation-Build-Number>
+                            
+                        </manifestEntries>
+                    </manifestSection>
+                </manifestSections>
+            </archive>
+        </configuration>
             </plugin>
             <!-- Maven Enforcer Plugin -->
             <plugin>
